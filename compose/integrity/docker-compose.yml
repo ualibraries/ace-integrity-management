@@ -7,8 +7,8 @@ services:
     links:
       - db-host
     ports:
-      - "8080:8080"
-      - "8181:8181"
+      - "8090:8080"
+      - "8191:8181"
       - "4848:4848"
     volumes:
       - ${ACE_INTEGRITY_SHARES:-./deployments}:/opt/payara5/deployments
