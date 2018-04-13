@@ -1,0 +1,36 @@
+version: '3'
+services:
+  management:
+    image: 'payara/server-full:5.181'
+    restart: always
+    tty: true
+    links:
+      - db-host
+    ports:
+      - "8080:8080"
+      - "8181:8181"
+      - "4848:4848"
+    volumes:
+      - ${ACE_INTEGRITY_SHARES:-./deployments}:/opt/payara5/deployments
+      - run.mysql:/run/mysqld
+
+  db-host:
+    image: 'mysql:5.7'
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=insecure
+      - MYSQL_DATABASE=aceimsdb
+      - MYSQL_USER=aceims
+      - MYSQL_PASSWORD=ace
+      - MYSQL_ALLOW_EMPTY_PASSWORD='false'
+    volumes:
+      - ./mysql/large-index.cnf:/etc/mysql/mysql.conf.d/large-index.cnf
+      - initdb.d:/docker-entrypoint-initdb.d
+      - ${ACE_INTEGRITY_DBSTORE:-dbstore}:/var/lib/mysql
+      - run.mysql:/run/mysqld
+
+volumes:
+  initdb.d:
+  run.mysql:
+  dbstore:
+    
