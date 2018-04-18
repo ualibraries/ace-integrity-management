@@ -1,17 +1,16 @@
 version: '3'
 services:
   management:
-    image: 'payara/server-full:5.181'
+    image: 'uazlibraries/ace-integrity-management:latest'
     restart: always
     tty: true
     links:
       - db-host
     ports:
-      - "8090:8080"
+      - "8080:8080"
       - "8191:8181"
       - "4848:4848"
     volumes:
-      - ${ACE_INTEGRITY_SHARES:-./deployments}:/opt/payara5/deployments
       - run.mysql:/run/mysqld
 
   db-host:
@@ -34,3 +33,8 @@ volumes:
   run.mysql:
   dbstore:
     
+#    healthcheck:
+#      test:  mysql --user=aceims --password=ace -e 'SELECT 1 FROM DUAL' aceimsdb
+#      start_period: 10s
+#      retries: 10
+#    build: ./integrity
