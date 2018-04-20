@@ -55,12 +55,12 @@
     <managed-scheduled-executor-service object-type="system-all" jndi-name="concurrent/__defaultManagedScheduledExecutorService"></managed-scheduled-executor-service>
     <context-service object-type="system-all" jndi-name="concurrent/__defaultContextService"></context-service>
     <managed-thread-factory object-type="system-all" jndi-name="concurrent/__defaultManagedThreadFactory"></managed-thread-factory>
-    <mail-resource auth="false" host="smtpgate.email.arizona.edu" from="payara@email.arizona.edu" user="glbrimhall" jndi-name="mail/ace-ims"></mail-resource>
+    <mail-resource auth="__SMTP_TLS__" host="__SMTP_HOST__" from="__SMTP_FROM__" user="__SMTP_USER__" __SMTP_PASSWORD__ jndi-name="mail/ace-ims"></mail-resource>
     <jdbc-connection-pool datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource" name="ace-ims-jdbc-pool" res-type="javax.sql.ConnectionPoolDataSource">
-      <property name="serverName" value="db-host"></property>
-      <property name="DatabaseName" value="aceimsdb"></property>
-      <property name="User" value="aceims"></property>
-      <property name="Password" value="ace"></property>
+      <property name="serverName" value="__DB_HOST__"></property>
+      <property name="DatabaseName" value="__DB_DATABASE__"></property>
+      <property name="User" value="__DB_USER__"></property>
+      <property name="Password" value="__DB_PASSWORD__"></property>
       <property name="SelfDestructOnPingSecondsLifetime" value="0"></property>
       <property name="UseUsageAdvisor" value="false"></property>
       <property name="AllowSlaveDownConnections" value="false"></property>
@@ -112,7 +112,7 @@
       <property name="NoAccessToProcedureBodies" value="false"></property>
       <property name="UseTimezone" value="false"></property>
       <property name="ClientCertificateKeyStoreType" value="JKS"></property>
-      <property name="Port" value="3306"></property>
+      <property name="Port" value="__DB_PORT__"></property>
       <property name="ClientInfoProvider" value="com.mysql.jdbc.JDBC4CommentClientInfoProvider"></property>
       <property name="IsInteractiveClient" value="false"></property>
       <property name="CachePrepStmts" value="false"></property>
@@ -180,8 +180,8 @@
       <property name="UseReadAheadInput" value="true"></property>
       <property name="ParseInfoCacheFactory" value="com.mysql.jdbc.PerConnectionLRUFactory"></property>
       <property name="DefaultFetchSize" value="0"></property>
-      <property name="URL" value="jdbc:mysql://db-host:3306/aceimsdb"></property>
-      <property name="Url" value="jdbc:mysql://db-host:3306/aceimsdb"></property>
+      <property name="URL" value="jdbc:mysql://__DB_HOST__:__DB_PORT__/__DB_DATABASE__"></property>
+      <property name="Url" value="jdbc:mysql://__DB_HOST__:__DB_PORT__/__DB_DATABASE__"></property>
       <property name="AllowMasterDownConnections" value="false"></property>
       <property name="CacheDefaultTimezone" value="true"></property>
       <property name="QueriesBeforeRetryMaster" value="50"></property>

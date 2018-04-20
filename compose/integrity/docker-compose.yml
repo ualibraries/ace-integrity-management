@@ -10,6 +10,16 @@ services:
       - "8080:8080"
       - "8191:8181"
       - "4848:4848"
+    environment:
+      - DB_DATABASE=${ACE_IMS_DATABASE:-imsdb}
+      - DB_HOST=${ACE_IMSDB_HOST:-db-host}
+      - DB_PORT=${ACE_IMSDB_PORT:-3306}
+      - DB_USER=${ACE_IMSDBA_USER:-aceims}
+      - DB_PASSWORD=${ACE_IMSDBA_PASSWORD:-ace}
+      - SMTP_HOST=${ACE_IMS_SMTP_HOST:-smtp.gmail.com:587}
+      - SMTP_TLS=${ACE_IMS_SMTP_TLS:-true}
+      - SMTP_USER=${ACE_IMS_SMTP_USER:-dockertestfilesender}
+      - SMTP_PASSWORD=${ACE_IMS_SMTP_PASSWORD:-password=\"thisisalongpassword\"}
     volumes:
       - run.mysql:/run/mysqld
 
@@ -17,10 +27,10 @@ services:
     image: 'mysql:5.7'
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=insecure
-      - MYSQL_DATABASE=aceimsdb
-      - MYSQL_USER=aceims
-      - MYSQL_PASSWORD=ace
+      - MYSQL_ROOT_PASSWORD=${DB_ADMIN_PSWD:-insecure}
+      - MYSQL_DATABASE=${ACE_IMS_DATABASE:-amdb}
+      - MYSQL_USER=${ACE_IMSDBA_USER:-aceam}
+      - MYSQL_PASSWORD=${ACE_IMSDBA_PASSWORD:-ace}
       - MYSQL_ALLOW_EMPTY_PASSWORD='false'
     volumes:
       - ./mysql/large-index.cnf:/etc/mysql/mysql.conf.d/large-index.cnf
