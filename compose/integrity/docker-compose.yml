@@ -20,6 +20,7 @@ services:
       - SMTP_TLS=${ACE_IMS_SMTP_TLS:-true}
       - SMTP_USER=${ACE_IMS_SMTP_USER:-dockertestfilesender}
       - SMTP_PASSWORD=${ACE_IMS_SMTP_PASSWORD:-password=\"thisisalongpassword\"}
+      - BOOTSTRAP_SLEEP=${ACE_IMS_BOOTSTRAP_SLEEP:-45}
     volumes:
       - run.mysql:/run/mysqld
 
