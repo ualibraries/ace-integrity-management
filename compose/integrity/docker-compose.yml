@@ -1,11 +1,9 @@
 version: '3'
 services:
   management:
-    image: 'uazlibraries/ace-integrity-management:latest'
+    image: 'uazlibraries/ace-integrity-management:1.11'
     restart: always
     tty: true
-    links:
-      - db-host
     ports:
       - "8080:8080"
       - "8191:8181"
@@ -21,31 +19,3 @@ services:
       - SMTP_USER=${ACE_IMS_SMTP_USER:-dockertestfilesender}
       - SMTP_PASSWORD=${ACE_IMS_SMTP_PASSWORD:-password=\"thisisalongpassword\"}
       - BOOTSTRAP_SLEEP=${ACE_IMS_BOOTSTRAP_SLEEP:-45}
-    volumes:
-      - run.mysql:/run/mysqld
-
-  db-host:
-    image: 'mysql:5.7'
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=${DB_ADMIN_PSWD:-insecure}
-      - MYSQL_DATABASE=${ACE_IMS_DATABASE:-amdb}
-      - MYSQL_USER=${ACE_IMSDBA_USER:-aceam}
-      - MYSQL_PASSWORD=${ACE_IMSDBA_PASSWORD:-ace}
-      - MYSQL_ALLOW_EMPTY_PASSWORD='false'
-    volumes:
-      - ./mysql/large-index.cnf:/etc/mysql/mysql.conf.d/large-index.cnf
-      - initdb.d:/docker-entrypoint-initdb.d
-      - ${ACE_INTEGRITY_DBSTORE:-dbstore}:/var/lib/mysql
-      - run.mysql:/run/mysqld
-
-volumes:
-  initdb.d:
-  run.mysql:
-  dbstore:
-    
-#    healthcheck:
-#      test:  mysql --user=aceims --password=ace -e 'SELECT 1 FROM DUAL' aceimsdb
-#      start_period: 10s
-#      retries: 10
-#    build: ./integrity
