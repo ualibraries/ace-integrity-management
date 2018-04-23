@@ -1,7 +1,7 @@
 version: '3'
 services:
   management:
-    image: 'uazlibraries/ace-integrity-management:1.11'
+    build: ./ims
     restart: always
     tty: true
     ports:
