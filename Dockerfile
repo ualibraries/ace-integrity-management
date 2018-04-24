@@ -1,6 +1,6 @@
 FROM payara/server-full:5.181
 
-ENV ACE_V=1.11 ACE_AUDIT_TAR=ace-am-1.11-RELEASE MAVEN_V=3.5.3 MAVEN=apache-maven-3.5.3 MYSQL_JCONNECT_V=5.1.46 MYSQL_JCONNECT=mysql-connector-java-5.1.46 J2EE_INIT_SLEEP=40
+ENV ACE_V=1.11 MAVEN_V=3.5.3 MAVEN=apache-maven-3.5.3 MYSQL_JCONNECT_V=5.1.46 MYSQL_JCONNECT=mysql-connector-java-5.1.46 J2EE_INIT_SLEEP=40
 
 RUN \ 
 mkdir -p /opt/ace-ims && \
