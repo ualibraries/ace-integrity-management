@@ -3,7 +3,7 @@ set -x
 
 NETWORK=${5:-host}
 
-TAG=${4:-1.11}
+TAG=${4:-1.12}
 CONTAINER=${3:-ace-integrity}
 REPOSITORY=${2:-ace-integrity-management}
 ACTION=${1:-BUILD}
