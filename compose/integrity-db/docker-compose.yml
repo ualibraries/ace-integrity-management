@@ -29,8 +29,8 @@ services:
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ADMIN_PSWD:-insecure}
-      - MYSQL_DATABASE=${ACE_IMS_DATABASE:-amdb}
-      - MYSQL_USER=${ACE_IMSDBA_USER:-aceam}
+      - MYSQL_DATABASE=${ACE_IMS_DATABASE:-imsdb}
+      - MYSQL_USER=${ACE_IMSDBA_USER:-aceims}
       - MYSQL_PASSWORD=${ACE_IMSDBA_PASSWORD:-ace}
       - MYSQL_ALLOW_EMPTY_PASSWORD='false'
     volumes:
