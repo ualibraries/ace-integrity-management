@@ -14,7 +14,7 @@ This docker image is part of a set created by the [University of Arizona Librari
 
 * [ace-dbstore-mysql](https://github.com/ualibraries/ace-dbstore-mysql) - provides a [mysql](https://hub.docker.com/_/mysql/) instance that will auto-create a dynamic number of ace-audit-manager databases and one ace-integrity-manager database.
 * [ace-integrity-management](https://github.com/ualibraries/ace-integrity-management) - provides the [Ace Integrity Management Service](https://wiki.umiacs.umd.edu/adapt/index.php/Ace:Ace_IMS_System) service, running within the [glassfish](https://en.wikipedia.org/wiki/GlassFish) based [Payara](https://www.payara.fish/) J2EE application container.
-* [ace-audit-manager](https://github.com/ualibraries/ace-audit-manager) - provides the [Ace Integrity Management Service Service](https://wiki.umiacs.umd.edu/adapt/index.php/Ace:Audit_Manager_Installation_Guide) fixity calculation and verification service, running within a [tomcat 8.5](http://tomcat.apache.org/) web servlet container.
+* [ace-audit-manager](https://github.com/ualibraries/ace-audit-manager) - provides the [Ace Audit Manager Service](https://wiki.umiacs.umd.edu/adapt/index.php/Ace:Audit_Manager_Installation_Guide) fixity calculation and verification service, running within a [tomcat 8.5](http://tomcat.apache.org/) web servlet container.
 
 ## Background
 
